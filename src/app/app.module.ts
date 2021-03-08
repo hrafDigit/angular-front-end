@@ -56,7 +56,6 @@ import { CalcuetteComponent } from './composants/calcuette/calcuette.component';
 import { ReactiveformComponent } from './composants/reactiveform/reactiveform.component';
 import { CommentsformComponent } from './composants/commentsform/commentsform.component';
 import { CommentsformcorrectionbsComponent } from './composants/commentsformcorrection-bs/commentsformcorrection-bs.component';
-import { CommentsformcorrectionmaterialComponent } from './composants/commentsformcorrectionmaterial/commentsformcorrectionmaterial.component';
 import { DragdropComponent } from './composants/materials/dragdrop/dragdrop.component';
 import { DashboardComponent } from './composants/materials/dashboard/dashboard.component';
 import { TableComponent } from './composants/materials/table/table.component';
@@ -95,7 +94,6 @@ import { ObservableComponent } from './composants/rxjs/observable/observable.com
     ReactiveformComponent,
     CommentsformComponent,
     CommentsformcorrectionbsComponent,
-    CommentsformcorrectionmaterialComponent,
     DragdropComponent,
     DashboardComponent,
     TableComponent,

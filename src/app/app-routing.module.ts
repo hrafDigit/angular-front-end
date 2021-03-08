@@ -28,7 +28,6 @@ import { CalcuetteComponent } from './composants/calcuette/calcuette.component';
 import { ReactiveformComponent } from './composants/reactiveform/reactiveform.component';
 import { CommentsformComponent } from './composants/commentsform/commentsform.component';
 import { CommentsformcorrectionbsComponent } from './composants/commentsformcorrection-bs/commentsformcorrection-bs.component';
-import { CommentsformcorrectionmaterialComponent } from './composants/commentsformcorrectionmaterial/commentsformcorrectionmaterial.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { LeaveGuard } from './guards/leave.guard';
@@ -69,7 +68,6 @@ const routes: Routes = [
   { path: 'reactiveform', component: ReactiveformComponent },
   { path: 'commentsform', component: CommentsformComponent },
   { path: 'commentsformcorrection-bs', component: CommentsformcorrectionbsComponent },
-  { path: 'commentsformcorrectionmaterial', component: CommentsformcorrectionmaterialComponent },
   { path: 'Table', component: TableComponent },
   { path: 'error', component: ErrorComponent },
   { path: 'auth', component: AuthComponent },
