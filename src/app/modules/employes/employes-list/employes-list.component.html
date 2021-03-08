@@ -1,0 +1,53 @@
+<form #employeForm=ngForm (ngSubmit)="saveEmploye()">
+  <div>
+    Nom : <input type="text" name="nom" [(ngModel)]="employe.nom" #nom="ngModel" placeholder="Saisir le nom" />
+  </div>
+  <div>
+    Prénom : <input type="text" name="prenom" [(ngModel)]="employe.prenom" #prenom="ngModel" placeholder="Saisir le prénom" />
+  </div>
+  <div>
+    <button class="btn btn-success" [disabled]=!employeForm.valid>
+      Ajouter
+    </button>
+  </div>
+</form>
+<div>
+  <ul>
+    <li *ngFor="let elt of employes">
+      {{ elt.nom }} {{ elt.prenom }}
+      <button (click)="selectEmploye(elt.id)">
+        Voir
+      </button>
+      <button (click)="updateEmploye(elt.id)">
+        Editer
+      </button>
+      <button (click)="deleteEmploye(elt.id)">
+        Supprimer
+      </button>
+    </li>
+  </ul>
+</div>
+
+<p>employes-list works!</p>
+
+<!--
+/*
+
+<div>
+    <ul>
+      <li *ngFor="let employe of employes.result">
+        {{ elt.nom }} {{ elt.prenom }}
+        <button (click)="deleteEmploye(elt.id)">
+          Supprimer
+        </button>
+        <button (click)="updateEmploye(elt.id)">
+          Editer
+        </button>
+        <button (click)="selectEmploye(elt.id)">
+          Détails
+        </button>
+      </li>
+  </ul>
+</div>
+*/
+-->

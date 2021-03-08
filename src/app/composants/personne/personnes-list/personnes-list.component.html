@@ -1,0 +1,32 @@
+<form #personneForm=ngForm (ngSubmit)="savePerson()">
+  <div>
+    Nom : <input type="text" name="nom" [(ngModel)]="personne.nom" #nom="ngModel" placeholder="Saisir le nom" />
+  </div>
+  <div>
+    Prénom : <input type="text" name="prenom" [(ngModel)]="personne.prenom" #prenom="ngModel" placeholder="Saisir le prénom" />
+  </div>
+  <div>
+    <button class="btn btn-success" [disabled]=!personneForm.valid>
+      Ajouter
+    </button>
+  </div>
+</form>
+<div>
+  <ul>
+    <li *ngFor="let elt of personnes">
+      {{ elt.nom }} {{ elt.prenom }}
+      <button (click)="deletePerson(elt.id)">
+        Supprimer
+      </button>
+      <button (click)="updatePerson(elt.id)">
+        Editer
+      </button>
+      <button (click)="selectPerson(elt.id)">
+        Détails
+      </button>
+    </li>
+  </ul>
+</div>
+
+<p>personnes-list works!</p>
+

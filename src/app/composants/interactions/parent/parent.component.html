@@ -1,0 +1,11 @@
+<h3>Moyenne des élèves : <br> {{ moyenne }} </h3>
+
+<!-- // Ici, on souhaite en fait calculer la moyenne des notes pour tous les élèves et non pas uniquement la moyenne des notes pour un élève -->
+<!-- D'où l'utilisation du '*ngFor' à partir du tableau contenant le nom de tous les élèves avec en paramètre le nom d'un élève -->
+<!-- la valeur émise par les événements 'EventEmitter' est récupérée sous la forme '$event' ; '$' indique que l'on fait de la liaison d'évènements ou "event Binding" -->
+<app-child *ngFor="let enfant of enfants"
+            [nom]="enfant"
+            (message)="computeAvg($event)"
+></app-child>
+<hr />
+<p>parent works!</p>

@@ -1,0 +1,37 @@
+<!-- La balise 'ng-content' possède un attribut 'select' qui prend comme valeur :
+– (1) le nom d'un attribut défini dans le composant parent
+– (2) ou le nom d'une classe css
+– (3) ou le nom d'une balise html -->
+
+<li>
+  Je suis un fils <ng-content></ng-content>
+</li>
+
+<!-- ex w/ (1) un attribut -->
+<li>
+  Je suis un fils ;
+  mon prénom est <ng-content select="[prenomContent]"></ng-content>
+  et mon nom est <ng-content select="[nomContent]"></ng-content>
+</li>
+
+<!-- ex w/ (2) une classe -->
+<li>
+  Je suis un fils ;
+  mon prénom est <ng-content select=".prenomContent"></ng-content>
+  et mon nom est <ng-content select=".nomContent"></ng-content>
+</li>
+
+<!-- ex w/ (3) une balise -->
+<li>
+  Nom et prénom :
+  <ng-content select="span"></ng-content>
+  pour en apprendre plus <ng-content select="a"></ng-content>
+</li>
+
+<!-- ex. Interpolation pour récupérer des infos -->
+<li>
+  Je suis le {{ ordre }} enfant de la fratrie et je suis né à {{ villeNaissance }}
+</li>
+
+
+<p>fils works!</p>

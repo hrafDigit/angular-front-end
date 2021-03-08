@@ -1,0 +1,51 @@
+<ul>
+  <app-fils>
+    <span>John</span>
+    <span>Wick</span>
+  </app-fils>
+  <app-fils>
+    <span>John</span>
+    <span>Doe</span>
+  </app-fils>
+  <app-fils>
+    <span>James</span>
+    <span>Ford</span>
+  </app-fils>
+  <!-- // separateur -->
+  <hr />
+  <app-fils>
+    <span prenomContent>Edgar</span>
+    <span nomContent>Degas</span>
+  </app-fils>
+  <app-fils>
+    <span prenomContent>Edouard</span>
+    <span nomContent>Manet</span>
+  </app-fils>
+  <app-fils>
+    <span prenomContent>Robert</span>
+    <span nomContent>Combas</span>
+  </app-fils>
+  <!-- // separateur -->
+  <hr />
+  <app-fils>
+    <span>John Wick</span>
+    <a href="*">Link</a>
+  </app-fils>
+  <app-fils>
+    <span>John Doe</span>
+    <a href="*">Link</a>
+  </app-fils>
+  <app-fils>
+    <span>James Ford</span>
+    <span></span>
+    <a href="*">Link</a>
+  </app-fils>
+</ul>
+
+<ul>
+  <app-fils [ordre]= "tab[0]" [villeNaissance]= "nord"></app-fils>
+  <app-fils [ordre]= "tab[1]" [villeNaissance]= "sud"></app-fils>
+  <app-fils [ordre]= "tab[2]" [villeNaissance]= "capitale"></app-fils>
+</ul>
+
+<p>pere works!</p>

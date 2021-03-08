@@ -1,0 +1,184 @@
+<!--  === START Container
+============================ -->
+<div class="container" >
+
+  <!-- === Begin Jumbotron
+  ======================== -->
+  <div class="jumbotron">
+      <h1>Formulaire avec commentaires</h1>
+      <p class="lead"></p>
+      <p class="lead"></p>
+      <p class="lead"></p>
+  </div>
+  <!-- === End Jumbotron
+    ==================== -->
+
+  <!-- === Begin BS Row + Col
+  =========================== -->
+  <div class="row">
+    <div class="col-sm">
+      <!-- === Begin FORM
+      =========================== -->
+      <form [formGroup]="personneForm" (ngSubmit)="afficherTout()">
+
+        <h3>GroupForm ID + Nom + Prénom</h3>
+        <!-- // Group pour ID -->
+        <div class="form-group">
+          <label for="id">Id:</label>
+          <input class="form-control" type="number" placeholder="ID" name=id formControlName="id">
+        </div>
+        <div *ngIf="personneForm.controls['id'].invalid && (personneForm.controls['id'].dirty ||
+          personneForm.controls['id'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['id'].errors?.required">
+            L'identifiant est obligatoire
+          </div>
+        </div>
+        <!-- // Group pour Nom -->
+        <div class="form-group">
+          <label for="nom">Nom:</label>
+          <input class="form-control" type="text" placeholder="Saisissez un nom" name=nom formControlName="nom">
+        </div>
+        <div *ngIf="personneForm.controls['nom'].invalid && (personneForm.controls['nom'].dirty ||
+          personneForm.controls['nom'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['nom'].errors?.required">
+            Le nom est obligatoire
+          </div>
+          <div *ngIf="personneForm.controls['nom'].errors?.error">
+            Première lettre en majuscule
+          </div>
+        </div>
+        <!-- // Group pour Prenom -->
+        <div class="form-group">
+          <label for="prenom">Prenom:</label>
+          <input class="form-control" type="text" placeholder="Saisissez un prénom" name=prenom formControlName="prenom">
+        </div>
+        <div *ngIf="personneForm.controls['prenom'].invalid && (personneForm.controls['prenom'].dirty ||
+          personneForm.controls['prenom'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['prenom'].errors?.required">
+            Le prénom est obligatoire
+          </div>
+          <div *ngIf="personneForm.controls['prenom'].errors?.error">
+            Première lettre en majuscule
+          </div>
+        </div>
+        <!-- // /* ON pourrait également faire un 'formGroupName' pour regrouper les 'form-group' des ID + Nom + Prénom */ -->
+        <!-- // GroupForm pour ID+Nom+Prénom -->
+        <!-- <div formGroupName="identifiant"> </div> -->
+        <!-- // END GroupForm pour ID+Nom+Prénom -->
+
+        <!-- // Boutton Submit Form -->
+        <button class="btn btn-success" type="submit" [disabled]="!personneForm.valid">Envoyer</button>
+
+        <!-- // BEGIN Commentaires | gérer un commentaire -->
+        <div formGroupName="commentaire" style="margin-top: 3em;">
+          <h3 style="display: block;">Commentaires</h3>
+          <h5>Ajoutez votre commentaire</h5>
+          <div class="form-group">
+            <label for="titre" style="display: inline-block;">Titre :</label>
+            <input class="form-control" type="text" name=titre formControlName="titre" style="display: inline-block;"
+              placeholder="Saisssez un titre">
+          </div>
+          <div *ngIf="personneForm.controls['titre'].invalid && (personneForm.controls['titre'].dirty ||
+                  personneForm.controls['titre'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['titre'].errors?.required">
+              Le titre est obligatoire
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contenu">Contenu :</label>
+            <input class="form-control" type="text" placeholder="Saisissez un commentaire" name=contenu
+              formControlName="contenu">
+          </div>
+          <div *ngIf="personneForm.controls['contenu'].invalid && (personneForm.controls['contenu'].dirty ||
+                  personneForm.controls['contenu'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['contenu'].errors?.required">
+              Le contenu est obligatoire
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="categorie">Catégorie :</label>
+            <input class="form-control" type="text" placeholder="Saisissez une catégorie" name=categorie
+              formControlName="categorie">
+          </div>
+          <div *ngIf="personneForm.controls['categorie'].invalid && (personneForm.controls['categorie'].dirty ||
+                      personneForm.controls['categorie'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['categorie'].errors?.required">
+              La catégorie est obligatoire
+            </div>
+          </div>
+          <!-- // Boutton Ajouter un Commentaires -->
+          <button class="btn btn-primary" type="button" (click)="ajouterCommentaire()">Ajouter un commentaire</button>
+        </div>
+        <!-- // END Commentaires | gérer un commentaire -->
+
+        <!-- // BEGIN Group pour Commentaires -->
+        <div *ngFor="let commentaire of commentaires.controls; let i=index;">
+          <div class="form-group">
+            <label for="commentaire">Commentaire</label>
+            <input style="display: inline-block;" class="form-control" type="text" [formControlName]="i">
+
+            <!-- // Boutton Supprimer un commentaire -->
+            <button style="display: inline-block;" class="btn btn-danger" type="button"
+              (click)="supprimerCommentaire(i)">Supprimer</button>
+          </div>
+        </div>
+        <!-- // END Group pour Commentaires -->
+
+      </form>
+      <!-- === End FORM
+      =========================== -->
+    </div>
+
+    <div class="col-sm">
+      <!-- // let personne of personnes -->
+      <div *ngFor="let personne of personnes;">
+        <!-- // table personne -->
+        <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ personne.id }}</td>
+                  <td>{{ personne.nom }}</td>
+                  <td>{{ personne.prenom }}</td>
+                  <td>{{ personne.commentaire.titre }}</td>
+                  <td>{{ personne.commentaire.contenu }}</td>
+                  <td>{{ personne.commentaire.categorie }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- // FIN table personne -->
+      <!-- // let subItem of personne.sports -->
+      <div *ngFor="let subItem of personne.commentaires; let i = index;">
+        <!-- // table Sport -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Commentaire {{ i }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ subItem }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- // FIN table Sport -->
+      </div>
+      <!-- // FIN let subItem of personne.sports -->
+    </div>
+    <!-- // FIN col-sm | let personne of personnes -->
+  </div>
+  <!-- === End BS Row + Col
+  =========================== -->
+</div>
+<!--  === END Container
+============================ -->
+
+
+<p style="margin-top: 3em;">reactiveform works!</p>

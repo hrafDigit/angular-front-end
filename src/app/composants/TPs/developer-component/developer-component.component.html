@@ -1,0 +1,10 @@
+<h3>Informations globales du {{ developer.lastName }}</h3>
+
+<ul>
+  <li *ngFor="let devOneSkill of developers.skills">
+    <app-skill-component [skill]='devOneSkill'></app-skill-component>
+  </li>
+</ul>
+
+<hr />
+<p>developer-component works!</p>

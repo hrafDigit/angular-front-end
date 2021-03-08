@@ -1,0 +1,18 @@
+<div class="container">
+  <form (ngSubmit)="updatePerson()">
+    <div>
+      ID : <input type="text" name="id" [(ngModel)]="personne.id" placeholder="ID" required />
+    </div>
+    <div>
+      Nom : <input type="text" name="nom" [(ngModel)]="personne.nom" placeholder="Nom" required />
+    </div>
+    <div>
+      Prénom : <input type="text" name="prenom" [(ngModel)]="personne.prenom" placeholder="Prénom" required />
+    </div>
+    <button type="submit">
+      Envoyer
+    </button>
+  </form>
+</div>
+
+<p>update-personne works!</p>

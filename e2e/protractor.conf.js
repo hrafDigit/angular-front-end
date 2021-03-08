@@ -16,7 +16,8 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  SELENIUM_PROMISE_MANAGER: false,
+  // SELENIUM_PROMISE_MANAGER: false,
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {

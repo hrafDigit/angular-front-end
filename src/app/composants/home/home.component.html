@@ -1,0 +1,514 @@
+<div class="container">
+<!-- START main div container -->
+
+  <h2>{{ title }} app is running!</h2>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #1  ::
+    Afficher le contenu défini dans app.component.ts ;
+    soit le patronyme du personnage du film "John Wick" == -->
+
+    <h4><strong><em>Afficher le patronyme du personnage du film "John Wick" :</em></strong></h4>
+    <li class="list-group-item">Nom : {{ personne.nom }}</li>
+    <li class="list-group-item">Prénom : {{ personne.prenom }}</li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #2  ::
+    Afficher le contenu (défini dans app.component.ts)
+    sous forme d'objet et d'objet au format JSON == -->
+
+    <h4><strong><em>Afficher le patronyme du personnage du film "John Wick" sous forme d'objet et d'objet au format JSON :</em></strong></h4>
+    <li class="list-group-item">{{ personne }}</li>
+    <li class="list-group-item">{{ personne | json }}</li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #3  ::
+    Afficher le libellé (défini dans app.component.ts)
+    de la formation Softeam à laquelle vous participez en utilisant
+    "l'interpolation" puis le "one way binding" == -->
+
+    <h4><strong><em>Afficher le libellé de la formation Softeam  en utilisant "l'interpolation" puis le "one way binding" :</em></strong></h4>
+    <!-- Pour afficher le contenu de 'libelleFormation' dans le "code source" 'app.components.ts',
+    on peut utiliser l'interpolation -->
+    <li class="list-group-item">{{ libelleFormation }}</li>
+
+    <!-- OU faire du "one way binding"
+    en utilisant la propriété Javascript 'textContent' -->
+    <li class="list-group-item" [textContent]="libelleFormation"></li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+  <!-- == Micro-exercice #4  ::
+  Afficher les douze premiers nombre de la suite de Fibonacci (défini dans app.component.ts) ;
+  soit un tableau retournant 12 valeurs == -->
+
+  <h4><strong><em>Afficher les douze premiers nombres de la suite de Fibonacci :</em></strong></h4>
+  <li class="list-group-item">{{ tabFibonacci[0] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[1] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[2] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[3] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[4] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[5] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[6] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[7] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[8] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[9] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[10] }}</li>
+    <li class="list-group-item">{{ tabFibonacci[11] }}</li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #5  ::
+    L'exercice précédent #4, montre une forme de limite
+    car le code est trop répetitif et que nous voulons éviter cela.
+    Afficher les douze premiers nombre de la suite de Fibonacci (défini dans app.component.ts)
+    – soit un tableau retournant 12 valeurs – en utilisant
+    les "directives" Angular == -->
+
+    <!-- La directive *ngFor permet de répéter un traitement afin d'éviter d'avoir une redondance dans le code/script comme ci-dessus ;
+    dans cet exemple, ce sera un array[] (i.e. tableau) 'tabFibonacci' déclaré et initialisé dans le "code-behind"
+    !! ATTENTION !! ne pas oublier de spécifier son type au tableau (number, string, etc.) -->
+
+    <h4><strong><em>Afficher les douze premiers nombres de la suite de Fibonacci ; en utilisant
+      la "directive" Angular 'ngFor' :</em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <li *ngFor="let elt of tabFibonacci">
+          {{ elt }}
+        <!-- //elt signifie element -->
+      </li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #6  ::
+    Afficher les douze premiers nombre de la suite de Fibonacci (défini dans app.component.ts)
+    – soit un tableau retournant 12 valeurs – ainsi que l'index pour chacune des valeurs ; en utilisant
+      la "directive" Angular 'ngFor' :  == -->
+
+    <!-- La directive *ngFor permet de répéter un traitement afin d'éviter d'avoir une redondance dans le code/script comme ci-dessus ;
+    dans cet exemple, ce sera un array[] (i.e. tableau) 'tabFibonacci' déclaré et initialisé dans le "code-behind"
+    !! ATTENTION !! ne pas oublier de spécifier son type au tableau (number, string, etc.) -->
+
+    <h4><strong><em>
+      Afficher les douze premiers nombres de la suite de Fibonacci ainsi que l'index pour chacune des valeurs ;
+      en utilisant la "directive" Angular 'ngFor' :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <li *ngFor="let elt of tabFibonacci; index as i">
+          {{ i }} : {{ elt }}
+        </li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #7  ::
+    Afficher la suite de Syracuse du nombre 14 (défini dans app.component.ts)
+    – soit un tableau retournant 18 valeurs – l'index pour chacune des valeurs
+    et un booléen pour indiquant le premier et le dernier item ; en utilisant
+      la "directive" Angular 'ngFor' :  == -->
+
+    <!-- La directive *ngFor permet de répéter un traitement afin d'éviter d'avoir une redondance dans le code/script comme ci-dessus ;
+    dans cet exemple, ce sera un array[] (i.e. tableau) 'tabFibonacci' déclaré et initialisé dans le "code-behind"
+    !! ATTENTION !! ne pas oublier de spécifier son type au tableau (number, string, etc.) -->
+
+    <h4><strong><em>
+      Afficher la suite de Syracuse du nombre 14, l'index pour chacune des valeurs
+      et un booléen pour indiquant le premier et le dernier item ; en utilisant
+      la "directive" Angular 'ngFor' :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <li *ngFor="let elt of tabSyracuse; let i = index; let isFirst = first; let isLast = last">
+          {{ i }} : {{ elt }} : {{ isFirst }} : {{ isLast }}
+        </li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #8  ::
+    Afficher la suite de Syracuse du nombre 14 (défini dans app.component.ts)
+    – soit un tableau retournant 18 valeurs – l'index pour chacune des valeurs
+    et un booléen pour indiquant le premier et le dernier item ; en utilisant
+      la "directive" Angular 'ngFor' :  == -->
+
+    <!-- La directive *ngFor permet de répéter un traitement afin d'éviter d'avoir une redondance dans le code/script comme ci-dessus ;
+    dans cet exemple, ce sera un array[] (i.e. tableau) 'tabFibonacci' déclaré et initialisé dans le "code-behind"
+    !! ATTENTION !! ne pas oublier de spécifier son type au tableau (number, string, etc.) -->
+
+    <h4><strong><em>
+      Afficher la suite de Syracuse du nombre 14, l'index pour chacune des valeurs
+      et un booléen pour indiquant les chiffres pairs ; en utilisant
+      la "directive" Angular 'ngFor':
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <li *ngFor="let elt of tabSyracuse; let i = index; let isEven = even; let isOdd = odd">
+          {{ i }} : {{ elt }} : {{ isEven }} : {{ isLast }}
+        </li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #9  ::
+    Afficher le deuxième terme de la suite de Syracuse (du nombre 14) et sa parité pair ou impair ; en utilisant
+      la "directive" Angular 'ngIf' == -->
+
+    <!-- Les directives s'utilisent avec les composants web suivant :
+      -ng-container
+      -ng-template -->
+
+    <!-- La directive *ngIf se comporte comme un 'if'
+    !! ATTENTION !! ne pas oublier de spécifier le type (number, string, etc.) du tableau -->
+
+    <h4><strong><em>
+      Afficher le deuxième terme de la suite de Syracuse (du nombre 14) et sa qualité pair ou impair ; en utilisant
+      la "directive" Angular 'ngIf' :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <!-- On utilise le modulo '%' pour savoir si le chiffre est pair ou impair ;
+          si module 2 est différent de zéro -> c'est pair -->
+        <li *ngIf="tabSyracuse[1] % 2 != 0;">
+          {{ tabSyracuse[1] }} est impair
+        </li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #10  ::
+    Ecrire un code HTML, en utilisant les directives Angular 'ngIf' et 'ng-template',
+    pour afficher le premier élément du tableau (tab) ainsi que sa parité (pair ou impair) == -->
+
+    <!-- La directive *ngIf se comporte comme un 'if'/then/else
+      lorsqu'elle est associée aux composants :
+      -ng-container
+      -ng-template -->
+    <!-- !! ATTENTION !! ne pas oublier de spécifier le type (number, string, etc.) du tableau -->
+
+    <h4><strong><em>
+      Afficher afficher le premier élément du tableau (tab) ainsi que sa parité (pair ou impair) ; en utilisant
+      les "directives" Angular 'ngIf' et 'ng-template' :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <!-- /* == Utilisation de 'ng-template' == */ -->
+        <!-- le code ci-dessous est équivalent à un "if()then{}else{}" où 'ng-template' sert de bloc soit then{} soit else{} -->
+        <li *ngIf="tab[0] % 2 != 0; then si else sinon;">
+          item vide | même si on y met un code, il ne sera jamais affiché
+        </li>
+        <ng-template #si>
+          <ol>
+            {{ tab[0] }} est impair
+          </ol>
+        </ng-template>
+        <ng-template #sinon>
+          <ol>
+            {{ tab[0] }} est pair
+          </ol>
+        </ng-template>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #11  ::
+    Ecrire un code HTML (en utilisant les directives Angular 'ngFor', 'ngIf', 'ng-template' et 'ng-container')
+    pour afficher le premier élément du tableau (tab)
+    ainsi que sa parité (pair ou impair) == -->
+
+    <!-- La directive *ngIf se comporte comme un 'if'/then/else
+      lorsqu'elle est associée aux composants :
+      -ng-container
+      -ng-template -->
+    <!-- !! ATTENTION !! ne pas oublier de spécifier le type (number, string, etc.) du tableau -->
+
+    <h4><strong><em>
+      Afficher le premier élément du tableau (tab) ainsi que sa parité (pair ou impair) ; en utilisant
+      les "directives" Angular 'ngFor', 'ngIf', 'ng-template' et 'ng-container' :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <!-- /* == Utilisation de 'ng-container' == */ -->
+        <ng-container *ngFor="let elt of tab">
+          <li *ngIf="elt % 2 != 0; then si else sinon">
+            item vide | même si on y met un code, il ne sera jamais affiché
+          </li>
+          <ng-template #si>
+            <ol>
+              {{ elt }} est impair
+            </ol>
+          </ng-template>
+          <ng-template #sinon>
+            <ol>
+              {{ elt }} est pair
+            </ol>
+          </ng-template>
+        </ng-container>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul class="list-group list-group-flush">
+    <!-- == Micro-exercice #12  ::
+    Ecrire un code HTML (en utilisant les directives Angular 'ngFor', 'ngSwitchCase', 'ng-template' et 'ng-container')
+    pour afficher, sous forme de liste HTML, chaque élement du tableau (tab)
+        de sorte que :
+        – si la valeur est comprise entre 0 et 9 : échec
+        – si la valeur est comprise entre 10 et 13 : assez bien/moyen
+        – si la valeur est comprise entre 14 et 16 : bien
+        – sinon : très bien
+     == -->
+
+    <!-- La directive *ngIf se comporte comme un 'if'/then/else
+      lorsqu'elle est associée aux composants :
+      -ng-container
+      -ng-template -->
+    <!-- !! ATTENTION !! ne pas oublier de spécifier le type (number, string, etc.) du tableau -->
+
+    <h4><strong><em>
+      Afficher, sous forme de liste HTML, chaque élement du tableau (tab)
+      de sorte que…
+      <br/>– si la valeur est comprise entre 0 et 9 => échec
+      <br/>– si la valeur est comprise entre 10 et 13 => assez bien/moyen
+      <br/>– si la valeur est comprise entre 14 et 16 => bien
+      <br/>– sinon => très bien :
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <ng-container *ngFor="let elt of tab">
+          <ng-container [ngSwitch]='true'>
+            <li *ngSwitchCase=" elt >= 0 && elt <= 9">
+              {{ elt }} : échec
+            </li>
+            <li *ngSwitchCase=" elt >= 10 && elt <= 13">
+              {{ elt }} : assez bien/moyen
+            </li>
+            <li *ngSwitchCase=" elt >= 14 && elt <= 16">
+              {{ elt }} : bien
+            </li>
+            <li *ngSwitchCase=" elt > 16">
+              {{ elt }} : tres bien
+            </li>
+            <li *ngSwitchDefault>
+              autre
+            </li>
+          </ng-container>
+        </ng-container>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul>
+    <!-- [ngStyle] permet de modifier le style à un élément HTML
+    s'utilise avec le property 'binding []' pour récupérer des valeus définis
+    dans le code-behind -->
+    <li class="list-group-item">
+      <p [textContent]=nom [ngStyle]='{ backgroundColor : couleur}'></p>
+    </li>
+    <li class="list-group-item">
+      <p [ngStyle]='{color: getColor() ,backgroundColor : getBackgroundColor()}'>
+        {{ libelleFormation }}
+      </p>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul>
+    <!-- [ngStyle] permet de modifier le style à un élément HTML
+    s'utilise avec le property 'binding []' pour récupérer des valeus définis
+    dans le code-behind -->
+    <li class="list-group-item">
+      <p [ngClass]="{'rouge': true}">
+        {{ nom }}
+      </p>
+    </li>
+    <li class="list-group-item">
+      <p [ngClass]="{'rouge': nom == 'Doe'}">
+        {{ nom }}
+      </p>
+    </li>
+    <li class="list-group-item">
+      <p [ngClass]="{'rouge': nom == 'Doe', 'vert': nom != 'Doe'}">
+        {{ nom }}
+      </p>
+    </li>
+    <li class="list-group-item">
+      <p [ngClass]=" nom == 'Doe' ? 'rouge' : 'vert' ">
+        {{ nom }}
+      </p>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul>
+      <!-- == Micro-exercice #13  ::
+      Ecrire un code HTML (en utilisant les directives Angular)
+      pour afficher, sous forme de liste HTML, HTML, chaque élement du tableau (tab)
+          de sorte que :
+          – si...  => rouge
+          – si... => vert
+       == -->
+    <!-- [ngStyle] permet de modifier le style à un élément HTML
+    s'utilise avec le property 'binding []' pour récupérer des valeus définis
+    dans le code-behind -->
+    <h4><strong><em>
+      Afficher, sous forme de liste HTML, chaque élement du tableau (tab)
+      de sorte que…
+      <br/>– si...  => rouge
+      <br/>– si... => vert
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ol>
+        <ng-container *ngFor = "let elt of tab">
+          <li [ngClass] = "elt % 2 == 0 ? 'rouge' : 'vert'">
+            {{ elt }}
+          </li>
+        </ng-container>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+  <ul>
+    <!-- == Micro-exercice #14 ::
+      Ecrire un script Angular qui permet d’afficher dans une liste HTML les
+  elements de la liste personne (on affiche que les nom et prenom). Les
+  elements d’indice pair seront affiches en rouge, les impairs en bleu.
+       == -->
+    <!-- [ngStyle] permet de modifier le style d'un élément HTML et
+    s'utilise avec le property 'binding []' pour récupérer des valeus définis
+    dans le code-behind -->
+    <h4><strong><em>
+      Afficher, sous forme de liste HTML, chaque élement du tableau (tab)
+      de sorte que…
+      <br/>– si...  => rouge
+      <br/>– si... => vert
+    </em></strong></h4>
+    <li class="list-group-item">
+      <ng-container *ngFor="let elt of personnes; let i = index;">
+        <li [ngClass]="i % 2 != 0 ? 'rouge' : 'vert'">
+          {{ elt.nom + " " + elt.prenom }}
+        </li>
+      </ng-container>
+    </li>
+  </ul>
+
+  <hr />
+  <ul>
+  <!-- == Introduction à Pipes == -->
+  <!-- /*
+    Un pipe n'autorise qu'un seul "transform'... si on a besoin de plusieurs 'transform',
+    il faut créer autant de 'pipe' que nécessaire.
+    On peut créer plusieurs pipes dans un module (dossier) 'pipes'... mais il faut les nommer différemment
+    bien entendu.
+  */ -->
+      <h4><strong><em>
+      Afficher la première lettre de chaque terme ; puis la quatrième lettre du premier terme + la première lettre du second terme + rien pour le dernier terme
+    </em></strong></h4>
+    <!-- <li class="list-group-item">
+      <ol>
+        <li>{{ "salut" | getChar }}</li>
+        <li>{{ "Wick" | getChar }}</li>
+        <li>{{ "John" | getChar }}</li>
+      </ol>
+      <ol>
+        <li>{{ "salut" | getChar:4 }}</li>
+        <li>{{ "Wick" | getChar:1 }}</li>
+        <li>{{ "John" | getChar }}</li>
+      </ol>
+    </li> -->
+  </ul>
+
+  <hr />
+  <ul>
+  <!-- == Micro-exercice #15 ::
+      Ecrire un script pour transformer un objet en tableau afin de permettre son itération avec '*ngFor'
+      Utiliser un 'pipe' prédéfini et voir la doc. idoine pour les consignes d'intégration du 'pipe'
+      person: any = {
+        nom: 'john',
+        prenom: 'pat'
+      }
+  == -->
+    <!-- <h4><strong><em>
+      Afficher...
+    </em></strong></h4> -->
+    <!-- <li *ngFor="let elt of person | getArrayObject">
+      {{ elt.key }} : {{ elt.value }}
+    </li> -->
+    <!-- Réponse -> erroné -->
+    <!-- <li class="list-group-item">
+      <ng-container *ngFor="let elt of person; let i = index;">
+        <li class="list-group-item">Nom : {{ person.nom }}</li>
+        <li class="list-group-item">Prénom : {{ person.prenom }}</li>
+      </ng-container>
+    </li> -->
+  </ul>
+
+  <hr />
+  <!-- == Micro-exercice #16 ::
+      Tooltip et Modal avec Bootstrap et ngx-Bootstrap
+  == -->
+  <ul>
+    <!-- BEGIN Tooltip w/ Bootstrap & ngx-Bootstrap -->
+    <h4><strong><em>
+      Tooltip avec ngx-bootstrap-tooltip
+    </em></strong></h4>
+    <li class="list-group-item">
+      <button type="button" class="btn btn-primary" tooltip="Je suis un bouton qui utilise le modue tooltip de ngx-bootstrap-tooltip">
+        Bouton avec tooltip
+      </button>
+    </li> <!-- END Tooltip w/ Bootstrap & ngx-Bootstrap -->
+
+    <!-- BEGIN Modal w/ Bootstrap & ngx-Bootstrap -->
+    <li class="list-group-item">
+      <button type="button" class="btn btn-info" (click)="openModal(modal)">
+        Ouvrir le Modal
+      </button>
+      <ng-template #modal>
+        <div class="modal-header">
+          <h6 class="modal-title pull-left">Modal</h6>
+          <button type="button" class="close pull-right"
+                  aria-label="Close" data-dismiss="modal"
+                  (click)="modalRef.hide()">
+          </button>
+          <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Bonjour, je suis un "modal" qui pourrait contenir plus de contenus comme un formulaire, un sign-in ou sign-up, etc.</p>
+        </div>
+      </ng-template>
+    </li> <!-- END Modal w/ Bootstrap & ngx-Bootstrap -->
+  </ul>
+
+<!-- END main div container -->
+</div>
+
+
+<hr />
+<p>home works!</p>
+<hr />
+<app-stagiaire></app-stagiaire>
+<hr />
+<app-adresse></app-adresse>

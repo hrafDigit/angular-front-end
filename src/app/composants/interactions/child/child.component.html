@@ -1,0 +1,6 @@
+<h6>{{ nom }}</h6>
+<input type="number" name="note" [(ngModel)]=note>
+<!-- // Ici, on décide de désactiver le bouton après l'envoi -->
+<button (click)="send()" [disabled]="buttonStatus">Envoyer</button>
+
+<p>child works!</p>

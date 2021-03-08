@@ -1,0 +1,348 @@
+<!-- ** Exemple #1 ** -->
+<!-- <div class="container">
+  Nom :
+  <input type="text" [formControl]="nom" />
+</div>
+<button (click)='afficherNom()'>Envoyer</button> -->
+
+<!-- ** Exemple #2 ** -->
+<!-- <div class="container">
+  <form [FormGroup]="PersonneForm">
+    <div class="">
+      Identifiant :
+      <input type="number" formControlName="id">
+    </div>
+    <div class="">
+      Nom :
+      <input type="text" formControlName="nom">
+    </div>
+    <div class="">
+      Prénom :
+      <input type="text" formControlName="prenom">
+    </div>
+    <button (click)="afficherTout">Afficher</button>
+  </form>
+</div> -->
+
+<!-- ** Exemple #3 ** -->
+
+
+<!--
+  /*
+  <div class="container">
+  <div class="jumbotron">
+    <h1>Reactive Form</h1>
+    <p class="lead"></p>
+    <p class="lead"></p>
+    <p class="lead"></p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+
+      <form [formGroup]="personneForm" (ngSubmit)="afficherTout()">
+        <div class="form-group">
+          <label for="id">Id:</label>
+          <input class="form-control" type="number" placeholder="Saisir un ID" name=id formControlName="id">
+        </div>
+
+        <div *ngIf="personneForm.controls['id'].invalid && (personneForm.controls['id'].dirty ||
+                    personneForm.controls['id'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['id'].errors?.required">
+            L'identifiant est obligatoire
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Nom">Nom :</label>
+          <input class="form-control" type="text" placeholder="Nom" name=nom formControlName="nom">
+        </div>
+
+        <div *ngIf="personneForm.controls['nom'].invalid && (personneForm.controls['nom'].dirty ||
+                    personneForm.controls['nom'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['nom'].errors?.required">
+            Le nom est obligatoire
+          </div>
+          <div *ngIf="personneForm.controls['nom'].errors?.erreur">
+            Premiere lettre en majuscule
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Prenom">Prénom :</label>
+          <input class="form-control" type="text" placeholder="Prénom" name=prenom formControlName="prenom">
+        </div>
+
+        <div *ngIf="personneForm.controls['prenom'].invalid && (personneForm.controls['prenom'].dirty ||
+                    personneForm.controls['prenom'].touched)" class="alert alert-danger">
+          <div *ngIf="personneForm.controls['prenom'].errors?.required">
+            Le prenom est obligatoire
+          </div>
+          <div *ngIf="personneForm.controls['prenom'].errors?.erreur">
+            Premiere lettre en majuscule
+          </div>
+        </div>
+
+        <div formGroupName="adresse">
+          <h3>Adresse</h3>
+          <div class="form-group">
+            <label for="rue">Rue :</label>
+            <input class="form-control" type="text" placeholder="Rue" name=rue formControlName="rue">
+          </div>
+          <div class="form-group">
+            <label for="ville">Ville :</label>
+            <input class="form-control" type="text" placeholder="Ville" name=ville formControlName="ville">
+          </div>
+          <div class="form-group">
+            <label for="codePostal">Code Postal :</label>
+            <input class="form-control" type="text" placeholder="Code Postal" name=codePostal
+              formControlName="codePostal">
+          </div>
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="!personneForm.valid">Envoyer</button>
+        <br>
+        <br>
+
+        <div formArrayName="sports">
+          <h3 style="display: contents">Sports</h3>
+          <br>
+          <br>
+          <button class="btn btn-primary" type="button" (click)="ajouterSports()">Ajouter un sport</button>
+          <div *ngFor="let sport of sports.controls; let i = index;">
+            <div class="form-group">
+              <label for="Sports">Sports</label>
+              <input class="form-control" type="text" [formControlName]="i">
+              <button class="btn btn-danger" type="button" (click)="supprimerSport(i)">Supprimer</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="col-sm">
+
+      <div ngFor="let personne of personnes;">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Rue</th>
+              <th scope="col">Ville</th>
+              <th scope="col">Code Postal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ personne.id }} </td>
+              <td>{{ personne.nom }} </td>
+              <td>{{ personne.prenom }} </td>
+              // ne pas oublier d'ajouter l'attribut du formGroupName="adresse"
+              <td>{{ personne.adresse.rue }} </td>
+              <td>{{ personne.adresse.ville }} </td>
+              <td>{{ personne.adresse.codePostal }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="col-sm">
+
+      <div *ngFor="let subItem of personne.sports; let i = index;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sport {{ i }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ subItem }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+*/
+-->
+
+
+<!--  === START Container
+============================ -->
+<div class="container" >
+
+  <!-- === Begin Jumbotron
+  ======================== -->
+  <div class="jumbotron">
+      <h1>Reactive Formulaire</h1>
+      <p class="lead"></p>
+      <p class="lead"></p>
+      <p class="lead"></p>
+  </div>
+  <!-- === End Jumbotron
+    ==================== -->
+
+  <!-- === Begin BS Row + Col
+  =========================== -->
+  <div class="row">
+    <div class="col-sm">
+        <!-- === Begin FORM
+        =========================== -->
+        <form [formGroup]="personneForm" (ngSubmit)="afficherTout()">
+
+          <!-- // Group pour ID -->
+          <div class="form-group">
+            <label for="id">Id:</label>
+            <input class="form-control" type="number" placeholder="Enter Id" name=id formControlName="id">
+          </div>
+          <div *ngIf="personneForm.controls['id'].invalid && (personneForm.controls['id'].dirty ||
+            personneForm.controls['id'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['id'].errors?.required">
+              L'identifiant est obligatoire
+            </div>
+          </div>
+          <!-- <div *ngIf="personneForm.controls['id'].invalid && (personneForm.controls['id'].dirty ||
+                    personneForm.controls['id'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['id'].errors?.required">
+              L'identifiant est obligatoire
+            </div>
+          </div> -->
+
+          <!-- // Group pour Nom -->
+          <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input class="form-control" type="text" placeholder="Enter LastName" name=nom formControlName="nom">
+          </div>
+          <div *ngIf="personneForm.controls['nom'].invalid && (personneForm.controls['nom'].dirty ||
+            personneForm.controls['nom'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['nom'].errors?.required">
+              Le nom est obligatoire
+            </div>
+            <div *ngIf="personneForm.controls['nom'].errors?.error">
+              Premiere lettre en majuscule
+            </div>
+          </div>
+
+          <!-- // Group pour Prenom -->
+          <div class="form-group">
+            <label for="prenom">Prenom:</label>
+            <input class="form-control" type="text" placeholder="Enter FirstName" name=prenom formControlName="prenom">
+          </div>
+          <div *ngIf="personneForm.controls['prenom'].invalid && (personneForm.controls['prenom'].dirty ||
+            personneForm.controls['prenom'].touched)" class="alert alert-danger">
+            <div *ngIf="personneForm.controls['prenom'].errors?.required">
+              Le prenom est obligatoire
+            </div>
+            <div *ngIf="personneForm.controls['prenom'].errors?.error">
+              Premiere lettre en majuscule
+            </div>
+          </div>
+
+          <!-- // Group pour Adresse -->
+          <div formGroupName="adresse">
+            <h3>Adresse</h3>
+            <div class="form-group">
+              <label for="rue">Rue:</label>
+              <input class="form-control" type="text" placeholder="Entrer une rue" name=rue formControlName="rue">
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville:</label>
+              <input class="form-control" type="text" placeholder="Entrer une ville" name=ville formControlName="ville">
+            </div>
+            <div class="form-group">
+              <label for="codePostal">CodePostal:</label>
+              <input class="form-control" type="text" placeholder="Entrer un code Postale" name=rue formControlName="codePostal">
+            </div>
+          </div>
+
+          <!-- // Boutton Submit Form -->
+          <button class="btn btn-success" type="submit" [disabled]="!personneForm.valid">Envoyer</button>
+
+          <!-- // Sports formArray | choisir un sport -->
+          <div style="margin-top: 3em;" formArrayName="sports">
+            <h3 style="display: block;">Sports</h3>
+            <!-- // Boutton Ajouter un Sport -->
+            <button class="btn btn-primary" type="button" (click)="ajouterSport()">Ajouter Sport</button>
+            <!-- // Group pour Sports -->
+            <div *ngFor="let sport of sports.controls; let i=index;">
+              <div class="form-group">
+                <label for="sports">Sports</label>
+                <input style="display: inline-block;" class="form-control" type="text" [formControlName]="i">
+                <!-- // Boutton Supprimer un Sport -->
+                <button style="display: inline-block;" class="btn btn-danger" type="button" (click)="supprimerSport(i)">Supprimer</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <!-- === End FORM
+        =========================== -->
+    </div>
+
+    <div class="col-sm">
+      <!-- // let personne of personnes -->
+      <div *ngFor="let personne of personnes;">
+        <!-- // table personne -->
+        <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Rue</th>
+                  <th scope="col">Ville</th>
+                  <th scope="col">Code Postal</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ personne.id }}</td>
+                  <td>{{ personne.nom }}</td>
+                  <td>{{ personne.prenom }}</td>
+                  <td>{{ personne.adresse.rue }}</td>
+                  <td>{{ personne.adresse.ville }}</td>
+                  <td>{{ personne.adresse.codePostal }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- // FIN table personne -->
+      <!-- // let subItem of personne.sports -->
+      <div *ngFor="let subItem of personne.sports; let i = index;">
+        <!-- // table Sport -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sport {{ i }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ subItem }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- // FIN table Sport -->
+      </div>
+      <!-- // FIN let subItem of personne.sports -->
+    </div>
+    <!-- // FIN col-sm | let personne of personnes -->
+  </div>
+  <!-- === End BS Row + Col
+  =========================== -->
+</div>
+<!--  === END Container
+============================ -->
+
+
+<p style="margin-top: 3em;">reactiveform works!</p>

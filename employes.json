@@ -1,0 +1,19 @@
+{
+    "employes": [
+      {
+        "id": 1,
+        "nom": "Toto",
+        "prenom": "AutreTest"
+      },
+      {
+        "id": 2,
+        "nom": "Green",
+        "prénom": "Bob"
+      },
+      {
+        "id": 3,
+        "nom": "Degas",
+        "prenom": "Edgar"
+      }
+    ]
+  }

@@ -1,0 +1,20 @@
+{
+  "personnes": [
+    {
+      "id": 1,
+      "nom": "Green",
+      "prénom": "Bob",
+      "prenom": "Bob"
+    },
+    {
+      "nom": "Toto",
+      "prenom": "AutreTest",
+      "id": 2
+    },
+    {
+      "nom": "Degas",
+      "prenom": "Edgar",
+      "id": 3
+    }
+  ]
+}
