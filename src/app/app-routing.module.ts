@@ -36,8 +36,6 @@ import { PereComponent } from './composants/interactions/pere/pere.component';
 import { FilsComponent } from './composants/interactions/fils/fils.component';
 import { ParentComponent } from './composants/interactions/parent/parent.component';
 import { ChildComponent } from './composants/interactions/child/child.component';
-import { DeveloperComponentComponent } from './composants/TPs/developer-component/developer-component.component';
-import { SkillComponentComponent } from './composants/TPs/skill-component/skill-component.component';
 import { ObservableComponent } from './composants/rxjs/observable/observable.component';
 
 // const routes: Routes = []; <= déclaration de routes par défaut
@@ -79,8 +77,6 @@ const routes: Routes = [
   { path: 'fils', component: FilsComponent },
   { path: 'parent', component: ParentComponent },
   { path: 'child', component: ChildComponent },
-  { path: 'developer-component', component: DeveloperComponentComponent },
-  { path: 'skill-component', component: SkillComponentComponent },
   { path: 'observable', component: ObservableComponent },
 
   // lazy loading

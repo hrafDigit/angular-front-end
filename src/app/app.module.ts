@@ -66,8 +66,6 @@ import { PereComponent } from './composants/interactions/pere/pere.component';
 import { FilsComponent } from './composants/interactions/fils/fils.component';
 import { ParentComponent } from './composants/interactions/parent/parent.component';
 import { ChildComponent } from './composants/interactions/child/child.component';
-import { DeveloperComponentComponent } from './composants/TPs/developer-component/developer-component.component';
-import { SkillComponentComponent } from './composants/TPs/skill-component/skill-component.component';
 
 // == Pipes
 import { GetCharPipe } from './pipes/get-char.pipe';
@@ -107,8 +105,6 @@ import { ObservableComponent } from './composants/rxjs/observable/observable.com
     FilsComponent,
     ParentComponent,
     ChildComponent,
-    DeveloperComponentComponent,
-    SkillComponentComponent,
     // == Pipes
     GetCharPipe,
     GetArrayObjectPipe,
